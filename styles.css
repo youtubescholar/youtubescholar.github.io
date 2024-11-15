@@ -1,123 +1,157 @@
+html {
+  font-size: 100%; /* Base font size respecting user settings */
+}
+
 body {
-    font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: monospace, sans-serif;
+  font-size: 1rem; /* 16px */
+  max-width: 44rem; /* 16px × 44 characters = 704px */
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 0 1rem; /* Default side padding */
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
-p {
-    margin-bottom: 1em; /* Consistent spacing for paragraphs */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+  }
 }
 
-/* Header styling STACKBLOCK00 */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Wraps content on smaller screens */
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
+/* Very Small Screens and Minimal Displays */
+@media (max-width: 2em) { /* 32px */
+  body {
+    font-size: 0.625rem; /* 10px */
+    max-width: 2rem; /* 32px */
+    padding: 0 0.5rem; /* 8px side padding */
+  }
 }
 
-.left-section, .center-section, .right-section {
-    flex: 1;
-    text-align: center;
-    padding: 5px;
+@media (min-width: 2.063em) and (max-width: 5.25em) { /* 33px to 84px */
+  body {
+    font-size: 0.75rem; /* 12px */
+    max-width: 4rem; /* 84px */
+    padding: 0 0.5rem; /* 8px side padding */
+  }
 }
 
-/* Image styling within center section */
-.center-section .images {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Space between images */
-    margin-bottom: 10px; /* Margin below images */
+/* Legacy Screens */
+@media (min-width: 5.313em) and (max-width: 15em) { /* 85px to 240px */
+  body {
+    font-size: 0.8125rem; /* 13px */
+    max-width: 14rem; /* 240px */
+    padding: 0 0.75rem; /* 12px side padding */
+  }
 }
 
-.center-section .images img, .center-section > img {
-    width: 120px;
-    height: auto;
+/* Very Small Screens (241px to 320px) */
+@media (min-width: 15.063em) and (max-width: 20em) { /* 241px to 320px */
+  body {
+    font-size: 0.9375rem; /* 15px */
+    max-width: 16rem; /* 270px */
+    padding: 0 1rem; /* 16px side padding */
+  }
 }
 
-/* Navigation styling STACKBLOCK01 */
-nav {
-    background-color: #0077B6; /* Bright blue background */
-    padding: 0.625em 1.25em;  /* Padding around the nav content */
+/* Small Screens (321px to 375px) */
+@media (min-width: 20.063em) and (max-width: 23.438em) { /* 321px to 375px */
+  body {
+    font-size: 0.9375rem; /* 15px */
+    max-width: 18rem; /* 315px */
+    padding: 0 1rem; /* 16px side padding */
+  }
 }
 
-/* Menu styling  */
-.menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background: #333; /* Dark background for the menu */
-    text-align: center;
-    display: none; /* Hidden by default, shown when hamburger is clicked */
-}
-.menu li a {
-    display: block;
-    padding: 0.625em; /* Consistent em unit padding */
-    color: white; /* Text color for readability */
-    text-decoration: none; /* No underline */
-    transition: text-decoration 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+/* Small-Medium Screens (376px to 480px) */
+@media (min-width: 23.5em) and (max-width: 30em) { /* 376px to 480px */
+  body {
+    font-size: 1.0625rem; /* 17px */
+    max-width: 24rem; /* 408px */
+    padding: 0 1rem; /* 16px side padding */
+  }
 }
 
-.menu li a:hover, .menu li a:focus {
-    text-decoration: underline; /* Underline on hover or focus for better visibility */
-    color: #FFD700; /* Bright color for hover state, ADA compliant */
+/* Medium Screens (481px to 600px) */
+@media (min-width: 30.063em) and (max-width: 37.5em) { /* 481px to 600px */
+  body {
+    font-size: 1.0625rem; /* 17px */
+    max-width: 30rem; /* 512px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
 }
 
-/* Hamburger icon styling */
-.hamburger {
-    display: block;
-    font-size: 1.875em; /* Converted from 30px for better scalability */
-    cursor: pointer;
-    text-align: center;
-    padding: 0.625em; /* Consistent em unit padding */
-    background: #333; /* Matching menu background */
-    color: white; /* Icon color */
+/* Medium-Large Screens (601px to 768px) */
+@media (min-width: 37.563em) and (max-width: 48em) { /* 601px to 768px */
+  body {
+    font-size: 1.0625rem; /* 17px */
+    max-width: 46rem; /* 768px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
 }
 
-/* Display menu when hamburger is checked */
-input[type="checkbox"]:checked + .hamburger + .menu {
-    display: block;
+/* Large Screens (769px to 1024px) */
+@media (min-width: 48.063em) and (max-width: 64em) { /* 769px to 1024px */
+  body {
+    font-size: 1.125rem; /* 18px */
+    max-width: 58rem; /* 960px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
+  .content-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2%;
+  }
 }
 
-/* Desktop styles */
-@media (min-width: 768px) {
-    .hamburger, #menu-toggle {
-        display: none; /* Hide hamburger icon and checkbox on larger screens */
-    }
-    .menu {
-        display: block;
-        background: none;
-    }
-    .menu li {
-        display: inline-block; /* Horizontal menu */
-    }
-    .menu li a {
-        padding: 15px;
-    }
+/* Extra Large Screens (1025px to 1280px) */
+@media (min-width: 64.063em) and (max-width: 80em) { /* 1025px to 1280px */
+  body {
+    font-size: 1.25rem; /* 20px */
+    max-width: 74rem; /* 1216px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
 }
 
-/* Hover and focus states for links */
-nav a:hover, nav a:focus {
-    background-color: #005f8a;
-    text-decoration: underline;
+/* Wide Screens (1281px to 1440px) */
+@media (min-width: 80.063em) and (max-width: 90em) { /* 1281px to 1440px */
+  body {
+    font-size: 1.375rem; /* 22px */
+    max-width: 82rem; /* 1344px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
 }
 
-nav a.active {
-    font-weight: bold;
-    background-color: #004c70;
+/* Ultra-Wide Screens (1441px to 1920px) */
+@media (min-width: 90.063em) and (max-width: 120em) { /* 1441px to 1920px */
+  body {
+    font-size: 1.5rem; /* 24px */
+    max-width: 106rem; /* 1728px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
 }
 
-/* Mobile styles */
-@media (max-width: 767px) {
-    .menu {
-        width: 100%;
-    }
+/* 4K Screens (1921px to 2560px) */
+@media (min-width: 120.063em) and (max-width: 160em) { /* 1921px to 2560px */
+  body {
+    font-size: 1.5rem; /* 24px */
+    max-width: 110rem; /* 1800px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
+  .content-container {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
 }
 
-/* Navigation styling STACKBLOCK02*/
-
-
+/* 5K and Above Screens (2561px and above) */
+@media (min-width: 160.063em) { /* 2561px and above */
+  body {
+    font-size: 1.5rem; /* 24px */
+    max-width: 110rem; /* 1800px */
+    padding: 0 1.125rem; /* 18px side padding */
+  }
+  .content-container {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+}
